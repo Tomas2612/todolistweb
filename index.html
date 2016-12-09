@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList Con AngularJS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script>
+    <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script>
+  </head>
+  <body>
+      <!--- Llama a la funcion getTotalTodos con id de clase "emphasis" contenida en el JavaScript --->
+    <div class="todo-wrapper" ng-controller="TodoCtrl">
+      <h2>Tú tienes <span class="emphasis">{{getTotalTodos()}}</span> cosas por hacer.</h2>
+      <ul>
+          <!--- Modulo que corresponde a la seleccion de los elementos agregados a la lista --->
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.done"/>
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul>
+       <!-- -->
+      <form>
+          <!-- Corresponde al texto que se encuentra dentro de la caje de texto.-->
+        <input class="add-input" placeholder="Yo necesito..." type="text" ng-model="formTodoText" ng-model-instant />
+        <button class="add-btn" ng-click="addTodo()"><h2>Agregar</h2></button>
+      </form>
+      <!--Llama la funcion de limpiar completos-->
+      <button class="clear-btn" ng-click="clearCompleted()">Limpiar completos</button>
+    </div>
+  </body>
+  
+</html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
